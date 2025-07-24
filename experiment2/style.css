@@ -1,0 +1,61 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: darkgray;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  background-color: white;
+  width: 30%;
+  height: 30%;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.box button {
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+}
+
+
+
+#deposit {
+  background-color: rgb(78, 202, 78);
+}
+#deposit:hover{
+    background-color: rgb(66, 180, 66);
+}
+
+#withdraw {
+  background-color: red;
+}
+
+#withdraw:hover {
+  background-color: rgb(234, 4, 4);
+}
+
+p {
+  font: bold;
+  font-size: 1.5em;
+  color: rgb(41, 196, 41);
+}
