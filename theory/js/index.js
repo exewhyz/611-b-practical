@@ -29,14 +29,16 @@
 
 // hello()
 
-const test = (name, greetingFunc) => {
-  console.log("test", name);
-  greetingFunc();
-};
+// const test = (name, greetingFunc) => {
+//   console.log("test", name);
+//   greetingFunc();
+// };
 
-const greetingFunc1 = () => {
-    console.log("Good morning");
-}
+// const greetingFunc1 = () => {
+//     console.log("Good morning");
+// }
 
 
-test("Aniket", greetingFunc1);
+// test("Aniket", greetingFunc1);
+
+
