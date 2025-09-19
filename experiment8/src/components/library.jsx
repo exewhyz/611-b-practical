@@ -10,6 +10,7 @@ function Library() {
   const [books, setBooks] = useState(booksData);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const [searchText, setSearchText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,11 +25,36 @@ function Library() {
     setAuthor("");
   };
 
+  const handleDelete = (bookId) => {
+    const updated = books.filter((b) => {
+      return b.id !== bookId;
+    });
+    setBooks(updated);
+  };
+
+  const filteredBooks = books.filter((book) => {
+    return (
+      book.title
+        .trim()
+        .toLowerCase()
+        .includes(searchText.trim().toLowerCase()) ||
+      book.author.trim().toLowerCase().includes(searchText.trim().toLowerCase())
+    );
+  });
+
   return (
     <div>
       <h1>Library Management</h1>
       <div className="library-header">
-        <input type="text" placeholder="Search by title or author" required />
+        <input
+          type="text"
+          placeholder="Search by title or author"
+          required
+          value={searchText}
+          onChange={(e) => {
+            setSearchText(e.target.value);
+          }}
+        />
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -52,11 +78,11 @@ function Library() {
         </form>
       </div>
       <ul className="books">
-        {books.map((book) => {
+        {filteredBooks.map((book) => {
           return (
-            <li>
+            <li key={book.id}>
               {book.title} by {book.author}
-              <button>Remove</button>
+              <button onClick={() => handleDelete(book.id)}>Remove</button>
             </li>
           );
         })}
